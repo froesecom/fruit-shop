@@ -12,6 +12,10 @@ h1 {
   padding: 15px;
 }
 
+ul {
+  list-style: none;
+}
+
 @media (min-width: 450px) {
   .container {
     padding: 55px;
