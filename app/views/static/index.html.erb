@@ -1,9 +1,14 @@
 <%= form_for @order do |f| %>
   <ul>
-    <li>
-      <label for="product">Watermelons</label>
-      <input type="number" required min="0" value="" name="product">
-    </li>
+    <% @products.each do |product| %>
+      <%= f.fields_for :product_requests, product.product_requests.new do |pr| -%>
+        <li>
+          <label for="product"><%= product.name %></label>
+            <%= number_field_tag "order[product_requests][][quantity]", min: 0 %> 
+            <%= hidden_field_tag "order[product_requests][][product_id]", product.id %>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
   <input type="submit" value="Place Order">  
 <% end  %>
