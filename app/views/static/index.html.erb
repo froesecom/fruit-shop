@@ -1,7 +1,7 @@
 <%= form_for @order do |f| %>
   <ul>
     <% @products.each do |product| %>
-      <%= f.fields_for :product_requests, product.product_requests.find_or_initialize_by(order: @order) do |pr| -%>
+      <%= f.fields_for :product_requests, product.product_requests.new do |pr| -%>
         <li>
           <label for="product"><%= product.name %></label>
             <%= number_field_tag :"order[product_requests][][quantity]", nil, min: 0 %> 
