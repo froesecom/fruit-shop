@@ -4,8 +4,8 @@
       <%= f.fields_for :product_requests, product.product_requests.new do |pr| -%>
         <li>
           <label for="product"><%= product.name %></label>
-            <%= number_field_tag :"order[product_requests][][quantity]", nil, min: 0 %> 
-            <%= hidden_field_tag "order[product_requests][][product_id]", product.id %>
+            <%= number_field_tag "order[product_requests_attributes][][quantity]", nil, min: 0 %> 
+            <%= hidden_field_tag "order[product_requests_attributes][][product_id]", product.id %>
         </li>
       <% end %>
     <% end %>
