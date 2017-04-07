@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   #reason to change: product schema changes
 
   has_many :product_requests, inverse_of: :product
+  has_many :product_packages, inverse_of: :product
   has_many :orders, through: :product_requests, inverse_of: :products
 
 end
