@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   
   def create
     @order = Order.new(order_params)
+    OrderProcessor.new(@order).call
   end
 
   private
