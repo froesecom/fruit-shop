@@ -5,4 +5,7 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :product_requests
 
+  validates :product_requests, presence: true
+  validates :processed, inclusion: { in: [true] } 
+
 end

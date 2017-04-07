@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 20170407030415) do
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "processed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "product_requests", force: :cascade do |t|
