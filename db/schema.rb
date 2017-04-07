@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407030415) do
+ActiveRecord::Schema.define(version: 20170407113406) do
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_package_id"
+    t.integer  "quantity"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.boolean  "processed",  default: false
     t.integer  "total"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "product_packages", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "product_quantity"
+    t.integer  "value"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "product_requests", force: :cascade do |t|
