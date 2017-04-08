@@ -8,7 +8,6 @@ class Order < ApplicationRecord
   has_many :product_packages, through: :order_items, inverse_of: :orders
 
   accepts_nested_attributes_for :product_requests
-  accepts_nested_attributes_for :order_items
 
   validates :product_requests, :order_items, :total, presence: true
   validates :processed, inclusion: { in: [true] } 
