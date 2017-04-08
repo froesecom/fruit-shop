@@ -3,7 +3,7 @@ module PackageRequestOptimizer
   #reason to change: required output changes
 
   def self.packages_for(product_request)
-    puts product_request.quantity 
+    tracker = OptimalPackageTracker.new(product_request)
     #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
   end
 

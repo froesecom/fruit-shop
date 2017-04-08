@@ -9,4 +9,9 @@ class ProductPackage < ApplicationRecord
   validates :product, :value, :product_quantity, presence: true 
   validates :product_quantity, numericality: {greater_than: 0}
 
+  scope :for_target, ->(target) do
+    where.not("product_quantity > ?", target)
+    .order(:product_quantity)
+  end
+
 end
