@@ -8,7 +8,7 @@ class OptimalPackageTracker
 
   def initialize(product_request)
     infinity                 = 1.0/0.0
-    @order_item_params          = []
+    @order_item_params       = []
     @target                  = product_request.quantity
     @available_packages      = product_request.product.product_packages.for_target(@target)
     @current_packages_picked = Array.new(@target + 1) #track which package has picked for a target value
