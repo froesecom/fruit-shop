@@ -13,7 +13,7 @@ class OptimalPackageTracker
     @available_packages      = product_request.product.product_packages.for_target(@target)
     @current_packages_picked = Array.new(@target + 1) #track which package has picked for a target value
     #track how many min packages are needed for a given value
-    @min_packages_picked     = Array.new(@target) {|i| i == 0 ? 0 : infinity}
+    @min_packages_picked     = Array.new(@target + 1) {|i| i == 0 ? 0 : infinity}
   end
 
 end
