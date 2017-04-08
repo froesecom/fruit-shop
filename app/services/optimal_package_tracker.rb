@@ -16,4 +16,8 @@ class OptimalPackageTracker
     @min_packages_picked     = Array.new(@target + 1) {|i| i == 0 ? 0 : infinity}
   end
 
+
+  def update_picked_packages(package, n_packages, i)
+  end
+
 end
