@@ -4,10 +4,12 @@ class OptimalPackageTracker
   #reason to change: definition of optimal package changes 
   
   attr_accessor :target, :order_item_params, :current_packages_picked,
-                :min_packages_picked, :available_packages, :chosen_packages
+                :min_packages_picked, :available_packages, :chosen_packages,
+                :product_request
 
   def initialize(product_request)
     infinity                 = 1.0/0.0
+    @product_request         = product_request
     @chosen_packages         = []
     @target                  = product_request.quantity
     @available_packages      = product_request.product.product_packages.for_target(@target)

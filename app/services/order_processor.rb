@@ -18,6 +18,7 @@ class OrderProcessor
     #but given there are only 3 products currently, this felt premature
     @order.product_requests.each do |pr|
       order_item_params = OrderItemOptimizer.order_items_for(pr)
+      #HERE'S WHERE TO START
       #@order.order_items << OrderItem.new(order_item_params)
     end
   end

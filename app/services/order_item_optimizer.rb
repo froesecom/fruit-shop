@@ -51,7 +51,23 @@ module OrderItemOptimizer
   end
 
   def self.build_order_items_params(tracker)
+    h = {}
+
+    tracker.chosen_packages.each do |p|
+      h[p] ? self.update_item_order_params(h, p) : self.build_item_order_params(h, p, tracker)
+    end
+    
+    h.values
+
     #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
+  end
+  
+  def self.build_item_order_params(h, p, tracker)
+    h[p] = {product_package: p, order: tracker.product_request.order, quantity: 1 }
+  end
+
+  def self.update_item_order_params(h, p)
+    h[p][:quantity] += 1
   end
 
 end
