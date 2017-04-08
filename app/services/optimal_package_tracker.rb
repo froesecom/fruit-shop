@@ -23,9 +23,7 @@ class OptimalPackageTracker
   end
 
   def finalize
-    if can_meet_target?
       build_item_order_params
-    end
   end
 
   def build_item_order_params
@@ -33,9 +31,7 @@ class OptimalPackageTracker
     {}
   end
   
-  private
-
-  def can_meet_target?
+  def can_fulfill_request?
     self.min_packages_picked.last.class == Fixnum #it's not infinity
   end
 
