@@ -18,11 +18,13 @@ class OrderProcessor
     #but given there are only 3 products currently, this felt premature
     @order.product_requests.each do |pr|
       order_items_params = OrderItemOptimizer.order_items_for(pr)
-      
-      order_items_params.each do |oip|
-        @order.order_items << OrderItem.new(oip)
+
+      if order_items_params 
+        order_items_params.each do |oip|
+          @order.order_items << OrderItem.new(oip)
+        end
       end
     end
-  end
 
+  end
 end

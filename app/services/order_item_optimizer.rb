@@ -14,6 +14,7 @@ module OrderItemOptimizer
       self.build_order_items_params(tracker)
     else
       product_request.can_fulfill = false
+      nil
     end
 
   end
