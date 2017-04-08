@@ -50,4 +50,5 @@ You can assume that bigger packs will always have a cheaper cost per unit price.
 
 ### TODO
 - Add a real relationship between product_requests and order_items
+- Refactor views after doing above
 - Output validation errors for order in the view

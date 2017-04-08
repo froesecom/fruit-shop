@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170407113406) do
     t.integer  "order_id"
     t.integer  "product_package_id"
     t.integer  "quantity"
+    t.integer  "total"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
