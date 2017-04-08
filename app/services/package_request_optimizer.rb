@@ -42,7 +42,6 @@ module PackageRequestOptimizer
     if chosen_min != 1.0/0.0 && chosen_min == memoized_val
       tracker.update_picked_packages(package, chosen_min, i) 
     end
-
   end
 
 end

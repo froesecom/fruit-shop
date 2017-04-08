@@ -18,6 +18,8 @@ class OptimalPackageTracker
 
 
   def update_picked_packages(package, n_packages, i)
+    self.min_packages_picked[i] = n_packages
+    self.current_packages_picked[i] = package
   end
 
 end
