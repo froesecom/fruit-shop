@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(version: 20170407113406) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.boolean  "processed",  default: false
     t.integer  "total"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_packages", force: :cascade do |t|

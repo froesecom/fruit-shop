@@ -10,7 +10,6 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :product_requests
 
   validates :product_requests, :order_items, :total, presence: true
-  validates :processed, inclusion: { in: [true] } 
 
   def set_total
     t = 0
