@@ -3,11 +3,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(cleanse(order_params))
     OrderProcessor.new(@order).call
-    if @order.save
-      puts "yay"
-    else
-      raise StandardError.new("something stupid happened")
-    end
+    @order.save
   end
 
   private

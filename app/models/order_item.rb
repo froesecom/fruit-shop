@@ -8,5 +8,11 @@ class OrderItem < ApplicationRecord
   
   validates :order, :product_package, :quantity, presence: true
   validates :quantity, numericality: {greater_than: 0}
+  
+  def product_request
+   #this is temporary and so gross.
+   #I need to add a real relationship between order_items and product_requests
+   order.product_requests.where(product_id: self.product_package.product.id, order_id: self.order.id).first 
+  end
 
 end

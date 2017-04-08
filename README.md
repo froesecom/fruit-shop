@@ -46,10 +46,8 @@ TOTAL                  $98.63
 Note that the system has determined the optimal packs to fill the order.
 You can assume that bigger packs will always have a cheaper cost per unit price.
 
-Advice:
-- The exact method & format of input/output is not important
-- Write code you will be happy to put int production
-- We like tests at Fresho... hint hint ;)
-- Make sure your code handles the given example.
-- If something is not clear don’t hesitate to ask, or just make an assumption and go with it
-- Its just an exercise, so no need to go overboard or spend too long on it :)
+
+
+### TODO
+- Add a real relationship between product_requests and order_items
+- Output validation errors for order in the view

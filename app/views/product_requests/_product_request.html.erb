@@ -1,0 +1,5 @@
+<h3><%= product_request_heading(product_request) %></h3>
+  <% if product_request.errors.any?  %> 
+    <%= render partial: "orders/product_requests/product_request_invalid"  %> 
+  <% end  %> 
+<hr>
