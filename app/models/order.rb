@@ -13,6 +13,9 @@ class Order < ApplicationRecord
   validates :processed, inclusion: { in: [true] } 
 
   def set_total
+    t = 0
+    order_items.each {|oi| t += oi.quantity * oi.product_package.value}
+    self.total = t
   end
 
 end
