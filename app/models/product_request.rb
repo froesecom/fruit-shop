@@ -6,6 +6,7 @@ class ProductRequest < ApplicationRecord
   belongs_to :product, inverse_of: :product_requests
 
   validates :order, :product, presence: true
-  validates :quanity, numericality: {greater_than: 0}
+  validates :quantity, numericality: {greater_than: 0}
+  validates :can_fulfill, inclusion: { in: [true] } 
 
 end

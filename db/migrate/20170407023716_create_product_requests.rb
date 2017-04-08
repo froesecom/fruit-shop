@@ -4,6 +4,7 @@ class CreateProductRequests < ActiveRecord::Migration[5.0]
       t.integer :order_id
       t.integer :product_id
       t.integer :quantity
+      t.boolean :can_fulfill
 
       t.timestamps
     end

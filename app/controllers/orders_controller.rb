@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(cleanse(order_params))
     OrderProcessor.new(@order).call
+    binding.pry
   end
 
   private

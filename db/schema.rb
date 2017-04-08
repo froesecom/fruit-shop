@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 20170407113406) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "can_fulfill"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "products", force: :cascade do |t|

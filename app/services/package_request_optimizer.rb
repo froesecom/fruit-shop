@@ -7,8 +7,14 @@ module PackageRequestOptimizer
 
     tracker = OptimalPackageTracker.new(product_request)
     self.determine_optimal_packages(tracker)
-    #tracker.some_method returns the below
-    #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
+
+    if tracker.finalize
+      product_request.can_fulfill = true
+      tracker.order_item_params
+    else
+      product_request.can_fulfill = false
+    end
+
   end
 
   private
@@ -17,7 +23,6 @@ module PackageRequestOptimizer
     tracker.available_packages.each do |package|
       self.pick_mins_for_package(package, tracker) 
     end
-    tracker.finalize
   end
 
   #iterate through the min packages picked array
