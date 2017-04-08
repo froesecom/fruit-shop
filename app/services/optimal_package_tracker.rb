@@ -22,4 +22,20 @@ class OptimalPackageTracker
     self.current_packages_picked[i] = package
   end
 
+  def finalize
+    if can_meet_target?
+      build_final_packages_params
+    else
+      product_request.can_fulfil = false
+    end
+  end
+  
+  private
+  def can_meet_target?
+    self.min_packages_picked.last.class == Fixnum #it's not infinity
+  end
+
+  def build_final_packages_params
+  end
+
 end

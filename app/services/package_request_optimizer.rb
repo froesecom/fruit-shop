@@ -6,15 +6,19 @@ module PackageRequestOptimizer
   def self.packages_for(product_request)
 
     tracker = OptimalPackageTracker.new(product_request)
-
-    tracker.available_packages.each do |package|
-      self.pick_mins_for_package(package, tracker) 
-    end
+    self.determine_optimal_packages(tracker)
     #tracker.some_method returns the below
     #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
   end
 
   private
+  #pick min product packages for each package
+  def self.determine_optimal_packages(tracker)
+    tracker.available_packages.each do |package|
+      self.pick_mins_for_package(package, tracker) 
+    end
+    tracker.finalize
+  end
 
   #iterate through the min packages picked array
   #and calculate the min packages that can be used for each value
@@ -35,10 +39,6 @@ module PackageRequestOptimizer
     memoized_val = 1 + tracker.min_packages_picked[i - package.product_quantity]
     chosen_min     = [val, memoized_val].min
 
-    puts "---"
-    puts "val: #{val}"
-    puts "memoizied_val: #{memoized_val}"
-
     if chosen_min != 1.0/0.0 && chosen_min == memoized_val
       tracker.update_picked_packages(package, chosen_min, i) 
     end
@@ -49,6 +49,6 @@ end
 #EXPLANATION
 #Choose the smallest of the value we're currently look at
 #or 1 + the value of array at [current_index - product_quantity].
-#For example, if the current package_quantity is 3, and you're trying to figure if you can evenly deliver a total of 5
-#you have to look at the value of index 2. If that can be calculated, then of course you can simply at the current package_quantity to it (+1 package) to achieve
+#For example, if the current product_quantity is 3, and you're trying to figure if you can evenly deliver a total of 5 products
+#you have to look at the value of index 2. If that can be calculated, then of course you can simply add the current package_quantity to it (+1 package) to achieve
 #the total
