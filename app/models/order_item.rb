@@ -7,5 +7,6 @@ class OrderItem < ApplicationRecord
   belongs_to :product_package
   
   validates :order, :product_package, :quantity, presence: true
+  validates :quanity, numericality: {greater_than: 0}
 
 end

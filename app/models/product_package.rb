@@ -6,4 +6,7 @@ class ProductPackage < ApplicationRecord
   has_many :orders, through: :order_items, inverse_of: :product_packages
   has_many :order_items, inverse_of: :product_package
 
+  validates :product, :value, :product_quantity, presence: true 
+  validates :product_quantity, numericality: {greater_than: 0}
+
 end
