@@ -1,5 +1,3 @@
-<%= render partial: "product_requests/product_request", locals: {product_request: order_item.product_request} %>
-<span><%= cents_to_dollars(order_item.total)  %></span>
-
+<span><%= line_item(order_item) %></span>
 <hr>
 
