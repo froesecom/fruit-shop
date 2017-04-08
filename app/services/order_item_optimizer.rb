@@ -11,7 +11,7 @@ module OrderItemOptimizer
     if tracker.can_fulfill_request?
       product_request.can_fulfill = true
       tracker.finalize
-      tracker.order_item_params
+      self.build_order_items_params(tracker)
     else
       product_request.can_fulfill = false
     end
@@ -48,6 +48,10 @@ module OrderItemOptimizer
     if chosen_min != 1.0/0.0 && chosen_min == memoized_val
       tracker.update_picked_packages(package, chosen_min, i) 
     end
+  end
+
+  def self.build_order_items_params(tracker)
+    #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
   end
 
 end

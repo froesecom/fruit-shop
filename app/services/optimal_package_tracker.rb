@@ -4,11 +4,11 @@ class OptimalPackageTracker
   #reason to change: definition of optimal package changes 
   
   attr_accessor :target, :order_item_params, :current_packages_picked,
-                :min_packages_picked, :available_packages
+                :min_packages_picked, :available_packages, :chosen_packages
 
   def initialize(product_request)
     infinity                 = 1.0/0.0
-    @order_item_params       = []
+    @chosen_packages         = []
     @target                  = product_request.quantity
     @available_packages      = product_request.product.product_packages.for_target(@target)
     @current_packages_picked = Array.new(@target + 1) #track which package has picked for a target value
@@ -22,17 +22,25 @@ class OptimalPackageTracker
     self.current_packages_picked[i] = package
   end
 
-  def finalize
-      build_item_order_params
-  end
-
-  def build_item_order_params
-    #should return [{product_package: product_package, order: product_request.order, quantity: 3}]
-    {}
-  end
-  
   def can_fulfill_request?
     self.min_packages_picked.last.class == Fixnum #it's not infinity
+  end
+  
+  def finalize
+    collect_chosen_packages
+  end
+
+  private
+  def collect_chosen_packages
+    #work backwards from last chosen package
+    i = current_packages_picked.length - 1
+
+    while i > 0
+      package = current_packages_picked[i]
+      chosen_packages.push(package)
+      i -= package.product_quantity
+    end  
+
   end
 
 end
