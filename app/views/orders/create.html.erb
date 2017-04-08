@@ -1,1 +1,4 @@
-  <a href="/">Place another order</a>
+<a href="/">Place another order</a>
+<div class="receipt">
+  <%= render partial: "orders/product_requests/product_request", collection: @order.product_requests %> 
+</div>
