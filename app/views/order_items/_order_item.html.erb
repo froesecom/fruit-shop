@@ -1,2 +1,5 @@
-<%= render partial: "product_requests/product_request", locals: {product_request: order_item.product_request, total: order_item.total}  %>
+<%= render partial: "product_requests/product_request", locals: {product_request: order_item.product_request} %>
+<span><%= cents_to_dollars(order_item.total)  %></span>
+
+<hr>
 
