@@ -7,7 +7,18 @@ class OrderProcessor
   end
   
   def call
-    puts "doing the things" 
+    build_order_items
+    @order.set_total
+  end
+
+  private
+
+  def build_order_items
+    #this could be optimized to find all required packages in one db query
+    #but given there are only 3 products currently, this felt premature
+    @order.product_requests.each do |pr|
+      packages_and_quantity = PackageRequestOptimizer.packages_for(pr)
+    end
   end
 
 end

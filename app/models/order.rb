@@ -10,4 +10,7 @@ class Order < ApplicationRecord
   validates :product_requests, :order_items, :total, presence: true
   validates :processed, inclusion: { in: [true] } 
 
+  def set_total
+  end
+
 end
