@@ -9,3 +9,33 @@ w_5:
   product: watermelon 
   product_quantity: 5
   value: 899
+
+p_2:
+  product: pineapple
+  product_quantity: 2
+  value: 995
+
+p_5:
+  product: pineapple
+  product_quantity: 5
+  value: 1695
+
+p_8:
+  product: pineapple
+  product_quantity: 8
+  value: 2495
+
+r_3:
+  product: rockmelon
+  product_quantity: 3
+  value: 595
+
+r_5:
+  product: rockmelon
+  product_quantity: 5
+  value: 995
+
+r_9:
+  product: rockmelon
+  product_quantity: 9
+  value: 1699 
