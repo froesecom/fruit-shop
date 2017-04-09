@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should have a name" do
+    assert !Product.new.save
+  end
+
 end

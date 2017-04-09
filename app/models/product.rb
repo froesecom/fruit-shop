@@ -6,4 +6,6 @@ class Product < ApplicationRecord
   has_many :product_packages, inverse_of: :product
   has_many :orders, through: :product_requests, inverse_of: :products
 
+  validates :name, presence: true
+
 end
