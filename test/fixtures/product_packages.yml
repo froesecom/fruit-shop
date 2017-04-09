@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  product_id: 1
-  product_quantity: 1
-  value: 1
+w_3:
+  product: watermelon
+  product_quantity: 3
+  value: 699
 
-two:
-  product_id: 1
-  product_quantity: 1
-  value: 1
+w_5:
+  product: watermelon 
+  product_quantity: 5
+  value: 899
