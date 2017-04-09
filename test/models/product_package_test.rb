@@ -14,5 +14,9 @@ class ProductPackageTest < ActiveSupport::TestCase
     assert !ProductPackage.new(value: 200, product: products(:rockmelon)).save
   end
 
+  test "for_target should not include product_packages larger than target " do
+    packages = ProductPackage.for_target(5)
+    assert packages.select {|p| p.product_quantity > 5}.empty?
+  end
 
 end
