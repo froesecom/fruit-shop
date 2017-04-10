@@ -10,4 +10,12 @@ class OrderTest < ActiveSupport::TestCase
   test "should have a total" do
     assert !@empty_order.errors[:total].empty?
   end
+
+  test "should have product requests" do
+    assert !@empty_order.errors[:product_requests].empty?
+  end
+  
+  test "should have order items" do
+    assert !@empty_order.errors[:order_items].empty?
+  end
 end
