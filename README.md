@@ -1,5 +1,14 @@
 # Fruit Shop challenge
 
+## To setup
+- `bundle install`
+- `rake db:create db:migrate db:seed`
+- `rails s`
+
+`rake test` to run tests
+
+## The problem
+
 A fresh food supplier sells product items to customers in packs. 
 The bigger the pack, the cheaper the cost per item.
 
@@ -49,6 +58,7 @@ You can assume that bigger packs will always have a cheaper cost per unit price.
 
 
 ### TODO
+- Finish test suite
 - Add a real relationship between product_requests and order_items
 - Refactor views after doing above
 - Output validation errors for order in the view
