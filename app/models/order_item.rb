@@ -13,6 +13,8 @@ class OrderItem < ApplicationRecord
     
   private
   def set_total
-    self.total = self.product_package.value * self.quantity
+    if product_package && quantity  
+      self.total = self.product_package.value * self.quantity
+    end
   end
 end

@@ -13,7 +13,14 @@ class Order < ApplicationRecord
 
   def set_total
     t = 0
-    order_items.each {|oi| t += oi.quantity * oi.product_package.value}
+    order_items.each do |oi|
+      if oi.valid?
+        t += oi.quantity * oi.product_package.value
+      else
+        t = nil
+        break
+      end
+    end
     self.total = t
   end
 
