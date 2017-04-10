@@ -1,5 +1,14 @@
 # Fruit Shop challenge
 
+## To setup
+- `bundle install`
+- `rake db:create db:migrate db:seed`
+- `rails s`
+
+`rake test` to run tests
+
+## The problem
+
 A fresh food supplier sells product items to customers in packs. 
 The bigger the pack, the cheaper the cost per item.
 
