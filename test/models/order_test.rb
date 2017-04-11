@@ -8,7 +8,15 @@ class OrderTest < ActiveSupport::TestCase
   end  
 
   #instance methods
-  
+  test "should have total after_set total" do
+    p  = Product.find_by_name("Watermelon")
+    pp = ProductPackage.where({product_quantity: 5, product: p}).first
+    pr = ProductRequest.new(quantity: 10, product: p)
+    oi = OrderItem.new(quantity: 2, product_package: pp, total: (pp.value * 2))
+    order = Order.new(product_requests: [pr], order_items: [oi])
+    order.set_total
+    assert order.total != nil && order.total == 1798
+  end  
   
   #validations
   test "should have a total" do
