@@ -20,6 +20,10 @@ class ProductRequestTest < ActiveSupport::TestCase
     assert !@empty_pr.errors[:can_fulfill].empty?
   end
 
+  test "quantity must exist" do
+    assert !@empty_pr.errors[:quantity].empty?
+  end
+
   #associations
   test "should belong to order" do
     pp = ProductRequest.reflect_on_association(:order)
