@@ -6,7 +6,16 @@ class OrderItemTest < ActiveSupport::TestCase
     @empty_oi = OrderItem.new
     @empty_oi.save
   end
-  
+ 
+  #callbacks
+  test "should call set total before validations" do
+    oi = OrderItem.first
+    oi.order = Order.new
+    assert oi.total == nil
+    oi.valid?
+    assert oi.total > 0
+  end
+
   #validations
   test "should have order" do
     assert !@empty_oi.errors[:order].empty?
